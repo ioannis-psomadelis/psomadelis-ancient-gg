@@ -1,0 +1,39 @@
+@let loading = loading$ | async;
+@let error = error$ | async;
+@let posts = posts$ | async;
+@let totalCount = totalCount$ | async;
+
+<div class="container mx-auto px-4 py-8">
+  <h1 class="text-3xl font-bold mb-8">Blog Posts</h1>
+
+  <!-- Posts List -->
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+    @if (loading) {
+      @for (i of [1, 2, 3, 4, 5, 6, 7, 8, 9]; track i) {
+        <app-skeleton-loader></app-skeleton-loader>
+      }
+    } @else {
+      @for (post of posts; track post.id) {
+        <app-post-card
+          [post]="post"
+          (click)="navigateToPost(post.id!)"
+        ></app-post-card>
+      }
+    }
+  </div>
+
+  @if (error) {
+    <div class="text-red-500">{{ error }}</div>
+  }
+
+  @if (totalCount) {
+    <div class="mt-7 flex justify-center">
+      <app-paginator
+        [totalCount]="totalCount"
+        [limit]="paginate.limit"
+        [currentPage]="paginate.page"
+        (onPageSelect)="selectPage($event.page)"
+      ></app-paginator>
+    </div>
+  }
+</div>

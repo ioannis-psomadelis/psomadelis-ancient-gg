@@ -1,0 +1,40 @@
+<article
+  class="flex flex-col min-h-[160px] bg-white p-6 border border-gray-200 rounded-lg shadow-sm"
+>
+  <h2 class="text-xl font-bold mb-2">{{ post().title }}</h2>
+  <p class="text-gray-600 mb-4">{{ post().body }}</p>
+
+  <!-- Author information -->
+  <div class="mb-8 text-sm text-gray-500">
+    @if (post().user) {
+      <p>Author: {{ post().user?.name }} ({{ post().user?.username }})</p>
+      <p>Contact: {{ post().user?.email }}</p>
+    } @else {
+      <p>Author: Unknown</p>
+    }
+  </div>
+
+  <!-- Comments section -->
+  <section class="mb-6">
+    <h3 class="text-lg font-semibold mb-4">Comments</h3>
+    <div class="space-y-4">
+      @if (post().comments?.data) {
+        @for (comment of post().comments?.data; track comment.id) {
+          <div class="bg-gray-50 p-4 rounded-md">
+            <div class="flex justify-between mb-2">
+              <span class="font-medium">{{ comment.name }}</span>
+              <span class="text-sm text-gray-500">{{ comment.email }}</span>
+            </div>
+            <p class="text-gray-600">{{ comment.body }}</p>
+          </div>
+        }
+      } @else {
+        <p class="text-gray-600">No comments yet.</p>
+      }
+    </div>
+  </section>
+
+  <div class="flex justify-end mt-auto">
+    <app-ui-button [routerLink]="['/posts']"> ← Back to Posts </app-ui-button>
+  </div>
+</article>

@@ -14,16 +14,18 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'ng-apollo' title`, () => {
+  it(`should have the 'GraphQL Posts' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('ng-apollo');
+    expect(app.title).toEqual('GraphQL Posts');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, ng-apollo');
+    expect(compiled.querySelector('h1')?.textContent).toContain(
+      'GraphQL Posts',
+    );
   });
 });

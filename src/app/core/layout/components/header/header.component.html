@@ -1,0 +1,25 @@
+<header class="bg-white shadow-md">
+  <nav class="container mx-auto px-4 sm:px-6 py-4">
+    <div class="flex justify-between items-center">
+      <div class="flex-shrink-0">
+        <a
+          [routerLink]="['/']"
+          class="text-xl font-bold text-gray-800 hover:text-gray-600"
+          >{{ title }}</a
+        >
+      </div>
+      <ul class="flex space-x-8 items-center">
+        <li>
+          <a [routerLink]="['/posts']" class="text-gray-600 hover:text-gray-900"
+            >Posts</a
+          >
+        </li>
+        <li>
+          <app-ui-button [routerLink]="['/posts/create-post']"
+            >Create Post
+          </app-ui-button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,10 @@
+<article
+  class="flex flex-col w-full h-full bg-white p-6 border border-gray-200 rounded-lg cursor-pointer shadow-sm hover:shadow-md transition-shadow"
+>
+  <h2 class="text-xl font-bold mb-4">{{ post().title }}</h2>
+  <div class="flex justify-end mt-auto">
+    <app-ui-button [routerLink]="['/posts', post().id]"
+      >Read more →</app-ui-button
+    >
+  </div>
+</article>

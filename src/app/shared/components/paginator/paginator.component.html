@@ -1,0 +1,58 @@
+@if (totalPages.length > 1) {
+  <nav class="flex justify-center my-4">
+    <ul class="inline-flex items-center space-x-2">
+      <li class="border-r border-gray-300 pr-2">
+        <button
+          class="primary-button"
+          [disabled]="currentPage() === firstPage"
+          (click)="goToFirstPage()"
+        >
+          First
+        </button>
+      </li>
+      <li>
+        <button
+          class="primary-button"
+          [disabled]="currentPage() === 1"
+          (click)="selectPage(currentPage() - 1)"
+        >
+          <
+        </button>
+      </li>
+
+      @for (page of visiblePageNumbers; track page) {
+        <li>
+          <button
+            class="paginator-button"
+            [class.bg-black]="page === currentPage()"
+            [class.text-white]="page === currentPage()"
+            [class.bg-gray-300]="page !== currentPage()"
+            [class.text-gray-600]="page !== currentPage()"
+            (click)="selectPage(page)"
+          >
+            {{ page }}
+          </button>
+        </li>
+      }
+
+      <li>
+        <button
+          class="primary-button"
+          [disabled]="currentPage() === totalPages.length"
+          (click)="selectPage(currentPage() + 1)"
+        >
+          >
+        </button>
+      </li>
+      <li class="border-l border-gray-300 pl-2">
+        <button
+          class="primary-button"
+          [disabled]="currentPage() === lastPage"
+          (click)="goToLastPage()"
+        >
+          Last
+        </button>
+      </li>
+    </ul>
+  </nav>
+}

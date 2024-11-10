@@ -1,27 +1,58 @@
-# NgApollo
+# GraphQL Blog Posts
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.10.
+An Angular application for managing blog posts using GraphQL, built with Angular 18.2.10.
 
-## Development server
+## Installation
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### 1. Install dependencies and run the project
 
-## Code scaffolding
+- Node.js version > 18
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
 
-## Build
+```bash
+npm run start
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 🚀 Features
 
-## Running unit tests
+- **Post Listing**: Fetch and display posts from GraphQLZero API
+- **Post Details**: View individual post details with dedicated routing
+- **Post Creation**: Create new posts with local state persistence
+- **State Management**: State handling with NgRx
+- **GraphQL Integration**: Apollo Client implementation for API communication
+- **Skeleton Loaders**: Skeleton loader for better user experience
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 🏗️ Project Structure
 
-## Running end-to-end tests
+- `src/app/core`: Core module with shared layout components and providers
+- `src/app/features`: Features module with individual features containing components, models, services, store, and routing
+- `src/app/shared`: Shared components and utils
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🔧 Configuration
 
-## Further help
+### GraphQL Setup
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+The application uses Apollo Client to communicate with the GraphQLZero API. Configuration can be found in:
+
+- `src/app/core/providers/apollo.ts`
+
+## 📚 Features Documentation
+
+### 1. Post Listing
+
+- Displays a grid of posts fetched from GraphQLZero API + local posts from the store
+- Pagination controls for navigating through posts
+
+### 2. Post Details
+
+- Dedicated route: `/posts/:id`
+- Displays title - description - author - comments
+- Implements back navigation with state preservation (back to paginated page)
+
+### 3. Post Creation
+
+- Form-based post creation interface
+- Call to the API and then store the new post in the store

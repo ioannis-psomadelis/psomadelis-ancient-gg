@@ -21,7 +21,7 @@ npm run start
 - **Post Listing**: Fetch and display posts from GraphQLZero API
 - **Post Details**: View individual post details with dedicated routing
 - **Post Creation**: Create new posts with local state persistence
-- **State Management**: State handling with NgRx
+- **State Management**: State handling with NgRx and facade pattern
 - **GraphQL Integration**: Apollo Client implementation for API communication
 - **Skeleton Loaders**: Skeleton loader for better user experience
 
@@ -38,6 +38,18 @@ npm run start
 The application uses Apollo Client to communicate with the GraphQLZero API. Configuration can be found in:
 
 - `src/app/core/providers/apollo.ts`
+
+### State Management Setup
+
+The application uses NgRx for centralized state management
+
+- `src/app/features/blog/store`
+
+### Facade architectural pattern setup
+
+The application uses the facade architectural pattern to manage the state and side effects.
+
+- `src/app/features/blog/store/blog.facade.ts`
 
 ## 📚 Features Documentation
 

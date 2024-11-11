@@ -16,6 +16,10 @@ npm install
 npm run start
 ```
 
+### Working demo
+
+[Live Demo](https://psomadelis-ancient-gg.vercel.app/)
+
 ## 🚀 Features
 
 - **Post Listing**: Fetch and display posts from GraphQLZero API
